@@ -2,6 +2,9 @@
 
 namespace DuneEdC
 {
+    /*
+     * A console version (early variant).
+     */
     public static class Program
     {
         const string INI_FILE = "duneed.ini";

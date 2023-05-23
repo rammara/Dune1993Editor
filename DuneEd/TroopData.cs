@@ -10,6 +10,7 @@ namespace DuneEd
     public class TroopData : IGameObject, INotifyPropertyChanged
     {
         private const byte MAXSKILL = 0x5f;
+        private const byte MAXMOTIVATION = 0x64;
         private readonly byte[] _record;
         public TroopData()
         {
@@ -97,6 +98,7 @@ namespace DuneEd
             get => _record[21];
             set
             {
+                if (value > MAXMOTIVATION) throw new ArgumentException($"Motivation must be less than or equal to {MAXSKILL}");
                 _record[21] = value;
                 OnPropertyChanged(nameof(Motivation));
                 IsModified = true;
@@ -106,6 +108,7 @@ namespace DuneEd
         {
             get => _record[22];
             set {
+                if (value > MAXSKILL) throw new ArgumentException($"Skill must be less than or equal to {MAXSKILL}");
                 _record[22] = value;
                 OnPropertyChanged(nameof(SpiceSkill));
                 IsModified = true;
@@ -115,6 +118,7 @@ namespace DuneEd
         {
             get => _record[23];
             set {
+                if (value > MAXSKILL) throw new ArgumentException($"Skill must be less than or equal to {MAXSKILL}");
                 _record[23] = value;
                 OnPropertyChanged(nameof(ArmySkill));
                 IsModified = true;
@@ -124,6 +128,7 @@ namespace DuneEd
         {
             get => _record[24];
             set {
+                if (value > MAXSKILL) throw new ArgumentException($"Skill must be less than or equal to {MAXSKILL}");
                 _record[24] = value;
                 OnPropertyChanged(nameof(EcologySkill));
                 IsModified = true;

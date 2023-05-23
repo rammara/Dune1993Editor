@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DuneEd
+﻿namespace DuneEd
 {
     public static class Values
     {
+        /*
+         * This is a 'magic sequence indicating the beginning of the first sietch in the file.
+         */
         public static readonly byte[] SietchesStartPattern =
             { 0x02, 0x01, 0x15, 0x19, 0xFC, 0xFF, 0xEB, 0x5C }; // Carthag first pattern
 

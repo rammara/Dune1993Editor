@@ -65,6 +65,15 @@ namespace DuneEd
             return mem.ToArray();
         } // Unpack
 
+
+        /*
+         0xF7 is a repeat flag. 
+         Algorithm takes every byte sequence of the same bytes that is longer than 3 and 
+         changes them to 0xf7 {count} {value}.
+         If there are more than 255 bytes with the same value then the packed version looks like:
+         0xf7 0xff {value} meaning repeat 255 times (and more if necessary).
+         * ignore the first 4 bytes of the saved file
+         */
         private byte[] Pack()
         {
             var mem = new MemoryStream();
